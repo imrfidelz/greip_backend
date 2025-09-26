@@ -14,7 +14,6 @@ const cors = require('cors');
 const { createServer } = require('http');
 const { Server } = require('socket.io');
 const socketAuth = require('./middleware/socketAuth');
-const notificationService = require('./utils/notificationService');
 const errorHandler = require('./middleware/error');
 const connectDB = require('./config/db');
 
@@ -67,9 +66,6 @@ io.on('connection', (socket) => {
     socket.to(`user_${socket.userId}`).emit('notificationRead', notificationId);
   });
 });
-
-// Set notification service socket.io instance
-notificationService.setSocketIO(io);
 
 // Body parser
 app.use(express.json({
