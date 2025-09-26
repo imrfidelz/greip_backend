@@ -20,7 +20,7 @@ const advancedResults = require('../middleware/advancedResults');
 const { protect, authorize } = require('../middleware/auth');
 
 // Public route
-router.get('/waitlist', createWaitlist);
+router.post('/waitlist', createWaitlist);
 
 // All routes below require authentication
 router.use(protect);
