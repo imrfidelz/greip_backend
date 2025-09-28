@@ -22,10 +22,15 @@ const UserSchema = new mongoose.Schema({
     enum: ['user', 'employers', 'admin'],
     default: 'user'
   },
+  member: {
+    type: String,
+    enum: ['basic', 'silver', 'gold'],
+    default: 'basic'
+  },
   esn: {
     type: String,
     unique: true,
-    immutable: true // <-- cannot be updated once set
+    immutable: true
   }
 });
 
